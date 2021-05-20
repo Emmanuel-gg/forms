@@ -1,0 +1,532 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+// Estilos de los input y selects
+:root {
+    --color-light: white;
+    --color-dark: #212121;
+    --color-signal: #6545ED;
+    
+    --color-background: var(--color-light);
+    --color-text: var(--color-dark);
+    --color-accent: var(--color-signal);
+    --color-hover: #5563FA;
+    
+    --size-bezel: .5rem;
+    --size-radius: 4px;
+    
+    line-height: 1.4;
+    
+    font-family: 'Roboto';
+    font-size: calc(.8rem + .4vw);
+    color: var(--color-text);
+    background: var(--color-background);
+    font-weight: 300;
+    padding: 0 calc(var(--size-bezel) * 3);
+  }
+  
+  h1, h2, h3 {
+
+    font-weight: 900;
+
+  }
+  
+  mark {
+    background: var(--color-accent);
+    color: var(--color-text);
+    font-weight: bold;
+    padding: 0 0.2em;
+  }
+  
+  .card {
+    background: var(--color-background);
+    padding: calc(4 * var(--size-bezel));
+    margin-top: calc(4 * var(--size-bezel));
+    border-radius: var(--size-radius);
+    border: 3px solid var(--color-shadow, currentColor);
+    box-shadow: .5rem .5rem 0 var(--color-shadow, currentColor);
+    
+    &--inverted {
+      --color-background: var(--color-dark);
+      color: var(--color-light);
+      --color-shadow: var(--color-accent);
+    }
+    
+    &--accent {
+      --color-background: var(--color-signal);
+      --color-accent: var(--color-light);
+      color: var(--color-dark);
+    }
+    
+    *:first-child {
+      margin-top: 0;
+    }
+  }
+  
+  
+  .l-design-widht {
+    max-width: 40rem;
+    padding: 1rem;
+  }
+  
+  form .input {
+    position: relative;
+    
+    &__label {
+      position: absolute;
+      left: 0;
+      top: 0;
+      padding: calc(var(--size-bezel) *0) calc(var(--size-bezel) * 0.5);
+      margin: calc(var(--size-bezel) * 0.4 + 3px) calc(var(--size-bezel) * .5);
+      margin-left: 10px;
+      background: pink;
+      white-space: nowrap;
+      transform: translate(0, 0);
+      transform-origin: 0 0;
+      background: var(--color-background);
+      transition: transform 120ms ease-in;
+      font-weight: 300;
+      line-height: 1.2;
+      color: gray;
+    }
+    &__switch {
+      margin: auto;
+      margin-top: .5rem;
+    }
+    &__field {
+      height: 47px;
+      box-sizing: border-box;
+      display: block;
+      width: 100%;
+      border: .5px solid currentColor;
+      padding: calc(var(--size-bezel) * .9) var(--size-bezel);
+      color: currentColor;
+      background: transparent;
+      border-radius: var(--size-radius);
+      
+      &:focus,
+      &:not(:placeholder-shown) {
+        & + .input__label {
+          transform: translate(.25rem, -65%) scale(.8);
+          color: var(--color-accent);
+        }
+      }
+    }
+    &.checkbox {
+      display: grid;
+    }
+    &:not(:first-child) {
+      margin-top: .7rem;
+    }
+  }
+  form div .input {
+
+    &:not(:first-child) {
+      margin-top: 0;
+    }
+  }
+  input[type=text].input__field {
+    padding: calc(var(--size-bezel) * 1.07) var(--size-bezel);
+  }
+  form input + span {
+    padding: calc(var(--size-bezel) * 0.3) !important;
+  }
+  input[type*=date].input__field {
+    padding: calc(var(--size-bezel) * .7) var(--size-bezel);
+  }
+  .button-group {
+    margin-top: calc(var(--size-bezel) * 2.5);
+  }
+  
+  button {
+      
+      color: white;
+      padding: var(--size-bezel) calc(var(--size-bezel) * 2);
+      background: var(--color-accent);
+      border: none;
+      border-radius: var(--size-radius);
+      font-weight: 900;
+      cursor: pointer;
+      &[type=reset]{
+          background: var(--color-background);
+          font-weight: 200;
+      } 
+      &:hover{
+          background: var(--color-hover);
+      }
+      &.botonEnviar{
+        margin-top: 1rem;
+        &.desabilitado{
+            cursor: auto;
+            &:hover{
+                background: var(--color-accent);
+            }
+        }
+      }
+      
+  }
+  
+  button + button {
+    margin-left: calc(var(--size-bezel) * 2);
+  }
+  
+  .icon {
+    display: inline-block;
+    width: 1em; height: 1em;
+    margin-right: .5em;
+  }
+  
+  .hidden {
+    display: none;
+  }
+
+
+  /** BEGIN: Non Openmrs CSS **/
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+* {
+	font-family: "Roboto";
+}
+div.container {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-around;
+	margin-top: 30px;
+	border: 1px solid whitesmoke;
+	padding: 21px;
+	border-radius: 4px;
+}
+h4.title {
+	text-align: center;
+	margin-bottom: 45px;
+}
+:root {
+	--omrs-color-ink-lowest-contrast: rgba(47, 60, 85, 0.18);
+	--omrs-color-ink-low-contrast: rgba(60, 60, 67, 0.3);
+	--omrs-color-ink-medium-contrast: rgba(19, 19, 21, 0.6);
+	--omrs-color-interaction: #1e4bd1;
+	--omrs-color-interaction-minus-two: rgba(73, 133, 224, 0.12);
+	--omrs-color-danger: #b50706;
+	--omrs-color-bg-low-contrast: #eff1f2;
+	--omrs-color-ink-high-contrast: #121212;
+	--omrs-color-bg-high-contrast: #ffffff;
+  --omrs-color-success: green;
+	
+}
+/** END: Non Openmrs CSS **/
+div.omrs-input-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+  margin-top: 3.5rem;
+}
+
+/* Input*/
+.omrs-input-underlined > input,
+.omrs-input-filled > input {
+  width: 95%;
+	border: none;
+	border-bottom: 0.125rem solid var(--omrs-color-ink-medium-contrast);
+	height: 2rem;
+	font-size: 1.0625rem;
+	padding-left: 0.875rem;
+	line-height: 147.6%;
+	padding-top: 0.825rem;
+  padding-bottom: 0;
+}
+
+.omrs-input-underlined > input:focus,
+.omrs-input-filled > input:focus,
+.omrs-input-underlined > select:focus,
+.omrs-input-filled > select:focus {
+	outline: none;
+}
+
+.omrs-input-underlined > .omrs-input-label,
+.omrs-input-filled > .omrs-input-label {
+	position: absolute;
+	top: 0.9375rem;
+	left: 0.875rem;
+	line-height: 147.6%;
+	color: var(--omrs-color-ink-medium-contrast);
+	transition: top .2s;
+}
+
+.omrs-input-underlined > svg,
+.omrs-input-filled > svg {
+	position: absolute;
+	top: 0.9375rem;
+	right: 1.2em;
+	fill: var(--omrs-color-ink-medium-contrast);
+}
+
+.omrs-input-underlined > .omrs-input-helper,
+.omrs-input-filled > .omrs-input-helper {
+	font-size: 0.9375rem;
+	color: var(--omrs-color-ink-medium-contrast);
+	letter-spacing: 0.0275rem;
+	margin: 0.125rem 0.875rem;
+}
+
+.omrs-input-underlined > input:hover,
+.omrs-input-filled > input:hover {
+	background: var(--omrs-color-interaction-minus-two);
+	border-color: var(--omrs-color-ink-high-contrast);
+}
+
+.omrs-input-underlined > input:focus + .omrs-input-label,
+.omrs-input-underlined > input:valid + .omrs-input-label,
+.omrs-input-filled > input:focus + .omrs-input-label,
+.omrs-input-filled > input:valid + .omrs-input-label {
+	top: 0;
+	font-size: 0.9375rem;
+	margin-bottom: 32px;;
+}
+
+.omrs-input-underlined:not(.omrs-input-danger) > input:focus + .omrs-input-label,
+.omrs-input-filled:not(.omrs-input-danger) > input:focus + .omrs-input-label {
+	color: var(--omrs-color-interaction);
+}
+
+.omrs-input-underlined:not(.omrs-input-danger) > input:focus,
+.omrs-input-filled:not(.omrs-input-danger) > input:focus {
+	border-color: var(--omrs-color-interaction);
+}
+
+.omrs-input-underlined:not(.omrs-input-danger) > input:focus ~ svg,
+.omrs-input-filled:not(.omrs-input-danger) > input:focus ~ svg {
+	fill: var(--omrs-color-ink-high-contrast);
+}
+
+/** DISABLED **/
+
+.omrs-input-underlined > input:disabled {
+	background: var(--omrs-color-bg-low-contrast);
+	cursor: not-allowed;
+}
+
+.omrs-input-underlined > input:disabled + .omrs-input-label,
+.omrs-input-underlined > input:disabled ~ .omrs-input-helper{
+	color: var(--omrs-color-ink-low-contrast);
+}
+
+.omrs-input-underlined > input:disabled ~ svg {
+	fill: var(--omrs-color-ink-low-contrast);
+}
+
+
+/** DANGER **/
+
+.omrs-input-underlined.omrs-input-danger > .omrs-input-label, .omrs-input-underlined.omrs-input-danger > .omrs-input-helper,
+.omrs-input-filled.omrs-input-danger > .omrs-input-label, .omrs-input-filled.omrs-input-danger > .omrs-input-helper{
+	color: var(--omrs-color-danger);
+}
+.omrs-input-underlined.omrs-input-danger > select{
+  color: var(--omrs-color-danger);
+  border-color: var(--omrs-color-danger);
+}
+.omrs-input-danger > svg {
+	fill: var(--omrs-color-danger);
+}
+
+.omrs-input-danger > input {
+	border-color: var(--omrs-color-danger);
+}
+
+.omrs-input-underlined > input {
+	background: var(--omrs-color-bg-high-contrast);
+}
+.omrs-input-filled > input {
+	background: var(--omrs-color-bg-low-contrast);
+}
+
+select+span.omrs-input-label {
+    top: -20px!important;
+}
+
+/** SUCCESS **/
+.omrs-input-underlined.omrs-input-success > .omrs-input-label, .omrs-input-underlined.omrs-input-success > .omrs-input-helper,
+.omrs-input-filled.omrs-input-success > .omrs-input-label, .omrs-input-filled.omrs-input-success > .omrs-input-helper{
+	color: var(--omrs-color-success)!important;
+}
+.omrs-input-underlined.omrs-input-success > select{
+  color: var(--omrs-color-success)!important;
+  border-color: var(--omrs-color-success)!important;
+}
+.omrs-input-success > svg {
+	fill: var(--omrs-color-success)!important;
+}
+
+.omrs-input-success > input {
+	border-color: var(--omrs-color-success)!important;
+}
+.omrs-input-underlined.omrs-input-success > input {
+	background: var(--omrs-color-bg-high-contrast)!important;
+}
+.omrs-input-filled.omrs-input-success > input {
+	background: var(--omrs-color-bg-low-contrast)!important;
+}
+  // Estilos de los checkbox
+  /* The switch - the box around the slider */
+  .input__switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+    
+    input:checked ~ .checkmark {
+      background-color: var(--color-signal);
+    }
+      
+      /* Contenedor */
+      label.container {
+        display: block;
+        position: relative;
+        padding-left: 35px;
+        min-height: 29px;
+        margin: auto;
+        cursor: pointer;
+        font: normal 300 1rem "Roboto";
+      }
+      
+      /* escondemos el default checkbox */
+      label.container input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+      }
+      
+      /* creamos un custom checkbox */
+      .checkmark {
+        position: absolute;
+        top: 8px;
+        left: 0;
+        height: 25px;
+        width: 25px;
+        background-color: #eee;
+      }
+      
+      
+      /* creamos el marcador (escondido al no seleccionar) */
+      .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+      }
+      
+      /* mostramos el marcador al seleccionar */
+      label.container input:checked ~ .checkmark:after {
+        display: block;
+      }
+      
+      /* estilo del marcador */
+      label.container .checkmark:after {
+        left: 9px;
+        top: 5px;
+        width: 5px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+  /// Estilos de los errores
+  .errores{
+      color: red;
+      display: block;
+      grid-column: span 2; 
+      grid-row: span 1;
+      font-size: 0.75rem;
+  }
+  /// Estilos del form
+  form {
+      width: 20%;
+      min-width: 280px;
+      margin: auto;
+      background-color: white;
+      padding: 10px 35px;
+      border-radius: 22px;
+  }
+  div.container-form{
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 10px;
+  }
+  div.container-form.options-2{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+  }
+  div.container-form.options-2 div:nth-child(1) label{
+    margin: 0;
+    margin-left: auto;
+    margin-right: 10px;
+  }
+  div.container-form.options-2 div:nth-child(2) label{
+    margin: 0;
+    margin-right: auto;
+    margin-left: 10px;
+  }
+  div.form.image1{
+    background-color: #45DAED !important;
+  }
+  .azul-claro{
+    background-color: #45DAED;
+  }
+  div.container-form.columns-2{
+    grid-template-columns: repeat(1, 1fr);
+    
+  }
+  //Responsive
+  @media (min-width: 550px){
+    div.form.image2{
+      & form{
+        width: 70%;
+      }
+    }
+    div.container-form{
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 10px;
+    }
+    div.container-form.columns-2{
+      grid-template-columns: repeat(2, 1fr); 
+    }
+    div.container-form.options-2{
+      grid-template-columns: repeat(2, 1fr); 
+      margin: auto;
+    }
+    
+  }
+  @media (min-width: 800px) {
+    :root{
+      font-size: calc(.6rem + .4vw);
+    }
+    .errores{
+      font-size: 0.70rem;
+    }
+    div.form.image2{
+    
+      background-color: #4D80E0;
+    }
+    div.container-form{
+      grid-template-columns: repeat(3, 1fr);
+    }
+    div.form.image2 form h2{
+      font-size: 1.8rem;
+    }
+    div.form.image2 form {
+      margin-right: auto!important;
+    }
+    .margin-left-0-md{
+      margin-left: 0!important;
+    }
+    .azul-oscuro-md{
+      background-color: #4D80E0;    
+    }
+  }
+  @media (min-width:1000px) {
+    .errores{
+      font-size: 0.65rem;
+    }
+  }
